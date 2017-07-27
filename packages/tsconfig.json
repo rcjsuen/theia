@@ -9,6 +9,9 @@
             "humane-js": [
                 "core/src/typings/humane-js"
             ],
+            "@theia/extension-manager/lib/*": [
+                "extension-manager/src/*"
+            ],
             "@theia/filesystem/lib/*": [
                 "filesystem/src/*"
             ],
