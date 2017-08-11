@@ -183,10 +183,6 @@
   version "1.13.31"
   resolved "https://registry.yarnpkg.com/@types/sanitize-html/-/sanitize-html-1.13.31.tgz#6d10581c302c5678532041ff5502c96121ef176c"
 
-"@types/semver@^5.3.32":
-  version "5.3.33"
-  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-5.3.33.tgz#58ebb6c8c48e161e24f8901915e7184900d341f7"
-
 "@types/serve-static@*":
   version "1.7.31"
   resolved "https://registry.yarnpkg.com/@types/serve-static/-/serve-static-1.7.31.tgz#15456de8d98d6b4cff31be6c6af7492ae63f521a"
@@ -6262,7 +6258,7 @@ semver-truncate@^1.0.0:
   dependencies:
     semver "^5.3.0"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1:
+"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
 
