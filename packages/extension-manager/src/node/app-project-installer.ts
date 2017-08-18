@@ -47,7 +47,7 @@ export class AppProjectInstaller {
 
         try {
             checkCancelled(this.options.token);
-            this.logger.info('Installing app extensions...');
+            this.logger.info('Updating app extensions...');
             await this.installExtensions();
             this.logger.info('App extensions are installed');
 
@@ -55,6 +55,11 @@ export class AppProjectInstaller {
             this.logger.info('Generating the app...');
             await this.generate();
             this.logger.info('The app generation is finished');
+
+            checkCancelled(this.options.token);
+            this.logger.info('Installing the app...');
+            await this.npmInstall();
+            this.logger.info('The app installation is finished');
 
             checkCancelled(this.options.token);
             this.logger.info('Building the app...');
@@ -113,8 +118,14 @@ export class AppProjectInstaller {
             await fs.ensureSymlink(srcPackagePath, destPackagePath, 'dir');
         }
         for (const [name, version] of diff.toAdd.entries()) {
+            //TODO shouldn't this be handled by 'npm/yarn install'?
             await this.npm('add', [`${name}@${version}`]);
         }
+    }
+
+    async npmInstall(): Promise<void> {
+        const model = this.options.generator.model;
+        const nodeModulesPath = path.resolve(this.projectPath, model.defaultConfig.node_modulesPath);
 
         const binSrcPath = path.resolve(this.projectPath, model.config.node_modulesPath, '.bin');
         const binDestPath = path.resolve(nodeModulesPath, '.bin');
@@ -122,6 +133,7 @@ export class AppProjectInstaller {
             checkCancelled(this.options.token);
             await fs.ensureSymlink(binSrcPath, binDestPath, 'dir');
         } else {
+            //TODO this is too early, as the generator has not created the package.json yet (it gets added through add above, but is empty otherwise)
             await this.npm('install', []);
         }
     }
