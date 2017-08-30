@@ -1,0 +1,22 @@
+{
+  "name": "@theia/docker",
+  "version": "0.1.1",
+  "description": "Theia - Docker Extension",
+  "dependencies": {
+    "@theia/core": "^0.1.1",
+    "@theia/languages": "^0.1.1",
+    "@theia/editor": "^0.1.1",
+    "@theia/monaco": "^0.1.1",
+    "@theia/filesystem": "^0.1.1",
+    "dockerfile-language-server-nodejs": "^0.0.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "theiaExtensions": [
+    {
+      "frontend": "lib/browser/docker-frontend-module",
+      "backend": "lib/node/docker-backend-module"
+    }
+  ]
+}
