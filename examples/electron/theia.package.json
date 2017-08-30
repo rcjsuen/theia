@@ -5,6 +5,7 @@
   "dependencies": {
     "@theia/core": "^0.1.1",
     "@theia/cpp": "^0.1.1",
+    "@theia/docker": "^0.1.1",
     "@theia/editor": "^0.1.1",
     "@theia/filesystem": "^0.1.1",
     "@theia/go": "^0.1.1",
